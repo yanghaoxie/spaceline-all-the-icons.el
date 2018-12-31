@@ -476,7 +476,6 @@ ICON-SET defaults to `spaceline-all-the-icons-icon-set-window-numbering'."
              (spaceline-all-the-icons--separator spaceline-all-the-icons-primary-separator nil "")
              (propertize tag
                          'display '(raise 0.2)
-                         'face `(:slant italic :height ,(spaceline-all-the-icons--height 0.9) :inherit))))))
 
     (concat (propertize eyebrowse-new
                         'mouse-face (spaceline-all-the-icons--highlight)
@@ -487,6 +486,7 @@ ICON-SET defaults to `spaceline-all-the-icons-icon-set-window-numbering'."
                         'mouse-face (spaceline-all-the-icons--highlight)
                         'local-map (make-mode-line-mouse-map 'mouse-1 'eyebrowse-switch-to-window-config)
                         'help-echo "Switch Eyebrowse window config")))
+                         'face `(:slant italic :height ,(spaceline-all-the-icons--height my/icon-height) :inherit))))))
   :when (bound-and-true-p eyebrowse-mode))
 
 (spaceline-define-segment all-the-icons-buffer-size
