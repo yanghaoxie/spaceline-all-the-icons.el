@@ -465,10 +465,10 @@ ICON-SET defaults to `spaceline-all-the-icons-icon-set-window-numbering'."
 
          (eyebrowse-slot (spaceline-all-the-icons--window-number-icon
                           num spaceline-all-the-icons-icon-set-eyebrowse-slot))
-         (eyebrowse-new
-          (propertize (all-the-icons-octicon "eye")
-                               'display '(raise 0.1)
-                               'face `( :height ,(spaceline-all-the-icons--height 1.2) :family ,(all-the-icons-octicon-family) :inherit)))
+         ;; (eyebrowse-new
+         ;;  (propertize (all-the-icons-octicon "eye")
+         ;;                       'display '(raise 0.1)
+         ;;                       'face `( :height ,(spaceline-all-the-icons--height my/icon-height) :family ,(all-the-icons-octicon-family) :inherit)))
          (eyebrowse-tag-p (and (not (string= "" tag)) spaceline-all-the-icons-eyebrowse-display-name))
          (eyebrowse-tag
           (when eyebrowse-tag-p
