@@ -162,7 +162,6 @@ Add ADDITIONAL-SEGMENTS to the end of the theme."
      all-the-icons-separator-left-active-2
 
      ((all-the-icons-process
-       all-the-icons-position
        all-the-icons-region-info
        all-the-icons-fullscreen
        all-the-icons-text-scale
@@ -225,6 +224,8 @@ Add ADDITIONAL-SEGMENTS to the end of the theme."
        all-the-icons-track
        all-the-icons-player-controls-shuffle)
       :face powerline-active2)
+
+     (all-the-icons-position)
 
      all-the-icons-separator-right-active-1
      ((all-the-icons-hud
