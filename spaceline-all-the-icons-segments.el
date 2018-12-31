@@ -369,7 +369,7 @@ doesn't inherit all properties of a face."
                 ((string= buffer-state "%") "lock"))))
 
     (propertize (all-the-icons-faicon icon :v-adjust 0.0)
-                'face `(:family ,(all-the-icons-faicon-family) :height ,(spaceline-all-the-icons--height 1.1) :inherit)
+                'face `(:family ,(all-the-icons-faicon-family) :height ,(spaceline-all-the-icons--height my/icon-height) :inherit)
                 'mouse-face (spaceline-all-the-icons--highlight)
                 'local-map (make-mode-line-mouse-map 'mouse-1 'read-only-mode)))
   :tight t)
@@ -434,7 +434,7 @@ doesn't inherit all properties of a face."
 (defun spaceline-all-the-icons--window-number-icon (window-num &optional icon-set)
   "Return the icon to use for WINDOW-NUM from ICON-SET.
 ICON-SET defaults to `spaceline-all-the-icons-icon-set-window-numbering'."
-  (let* ((face `(:height ,(spaceline-all-the-icons--height 1.2) :inherit))
+  (let* ((face `(:height ,(spaceline-all-the-icons--height my/icon-height) :inherit))
          (icon-set (if (> window-num 9) 'string
                      (or icon-set
                          spaceline-all-the-icons-icon-set-window-numbering)))
@@ -523,15 +523,15 @@ ICON-SET defaults to `spaceline-all-the-icons-icon-set-window-numbering'."
     (unless (symbolp icon)
       (propertize icon
                   'help-echo (format "Major-mode: `%s'" major-mode)
-                  'display '(raise 0)
-                  'face `(:height ,(spaceline-all-the-icons--height 1.1)
+                  'display '(raise my/icon-raise)
+                  'face `(:height ,(spaceline-all-the-icons--height my/icon-height)
                           :family ,(all-the-icons-icon-family-for-mode major-mode)
                           :inherit)))))
 
 (spaceline-define-segment all-the-icons-buffer-id
   "An `all-the-icons' segment to display current buffer id"
   (let* ((height (if spaceline-all-the-icons-slim-render 1.0 0.8))
-         (raise  (if spaceline-all-the-icons-slim-render 0.1 0.2))
+         (raise  (if spaceline-all-the-icons-slim-render my/text-raise 0.2))
 
          (help-echo (format "Major-mode: `%s'" major-mode))
 
@@ -665,7 +665,7 @@ It is only enabled when you're not in a project or if the projectile segment is 
       (concat
        (propertize icon
                    'display '(raise -0.2)
-                   'face `(:family ,(all-the-icons-material-family) :height ,(spaceline-all-the-icons--height 1.2) :inherit))
+                   'face `(:family ,(all-the-icons-material-family) :height ,(spaceline-all-the-icons--height my/icon-height) :inherit))
        (propertize text 'face `(:height ,(spaceline-all-the-icons--height) :inherit) 'display '(raise 0.1)))))
   :tight t :enabled nil
   :when (bound-and-true-p text-scale-mode-lighter))
@@ -959,9 +959,9 @@ available updates then restores the current buffer."
     (propertize
      (concat
       (propertize (all-the-icons-octicon "package" :v-adjust 0.1)
-                  'face `(:height ,(spaceline-all-the-icons--height 1.1) :family ,(all-the-icons-octicon-family)))
+                  'face `(:height ,(spaceline-all-the-icons--height my/icon-height) :family ,(all-the-icons-octicon-family)))
       (propertize (or new-text "")
-                  'face `(:height ,(spaceline-all-the-icons--height 1.2) :family ,(all-the-icons-material-family)))
+                  'face `(:height ,(spaceline-all-the-icons--height my/icon-height) :family ,(all-the-icons-material-family)))
       (propertize " " 'face `(:height ,(spaceline-all-the-icons--height 0.4)))
       (propertize update-text
                   'face face
@@ -1017,7 +1017,7 @@ available updates then restores the current buffer."
    (if (string-match "\%" (format-mode-line "%p"))
        (format-mode-line "%p%%")
      (format-mode-line "%p"))
-   'face `(:height ,(spaceline-all-the-icons--height) :inherit))
+   'face `(:height ,(spaceline-all-the-icons--height my/icon-height) :inherit))
   :enabled nil :when (not spaceline-all-the-icons-slim-render))
 
 ;;; Second Right divider segments
@@ -1143,8 +1143,8 @@ Displays HERE and TOTAL to indicate how many search results have been found."
          (anzu-face (if (and (zerop total)
                              (not (string= isearch-string "")))
                         'anzu-mode-line-no-match 'anzu-mode-line))
-         (text-face `(:height ,(spaceline-all-the-icons--height 1.1) :inherit ,anzu-face))
-         (icon-face `(:height ,(spaceline-all-the-icons--height 1.1) :family ,(all-the-icons-material-family) :inherit ,anzu-face)))
+         (text-face `(:height ,(spaceline-all-the-icons--height my/icon-height) :inherit ,anzu-face))
+         (icon-face `(:height ,(spaceline-all-the-icons--height my/icon-height) :family ,(all-the-icons-material-family) :inherit ,anzu-face)))
 
     (concat " "
      (propertize (all-the-icons-material icon) 'face icon-face)
