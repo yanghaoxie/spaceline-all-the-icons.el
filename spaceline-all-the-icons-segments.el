@@ -26,6 +26,11 @@
 (require 'spaceline)
 (require 'all-the-icons)
 
+(defconst my/icon-height 0.9)
+(defconst my/text-height 1.0)
+(defconst my/icon-raise 0)
+(defconst my/text-raise 0)
+
 ;;; Forward declarations of Optional Dependencies
 (declare-function projectile-project-root "ext:projectile.el")
 (declare-function yahoo-weather-info-format "ext:yahoo-weather.el")
