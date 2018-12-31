@@ -983,7 +983,7 @@ available updates then restores the current buffer."
     (propertize
      (concat
       (propertize (all-the-icons-faicon "check-circle" :v-adjust 0.1)
-                  'face `(:height ,(spaceline-all-the-icons--height 1.1) :family ,(all-the-icons-faicon-family) :inherit))
+                  'face `(:height ,(spaceline-all-the-icons--height my/icon-height) :family ,(all-the-icons-faicon-family) :inherit))
       " "
       (propertize (truncate-string-to-width org-clock-current-task 20 nil nil "…")
                   'face face
