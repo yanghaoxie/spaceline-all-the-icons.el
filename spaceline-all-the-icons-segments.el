@@ -492,8 +492,8 @@ ICON-SET defaults to `spaceline-all-the-icons-icon-set-window-numbering'."
 (spaceline-define-segment all-the-icons-buffer-size
   "An `all-the-icons' segment depicting the buffer size"
   (propertize (format-mode-line "%I")
-              'display '(raise 0.1))
               'face `(:height ,(spaceline-all-the-icons--height my/text-height) :inherit)
+              'display '(raise my/text-raise))
   :tight t)
 
 ;;; Second Divider Segments
@@ -720,8 +720,8 @@ It is only enabled when you're not in a project or if the projectile segment is 
                   'face `(:family ,(all-the-icons-octicon-family) :height ,(spaceline-all-the-icons--height) :inherit)
                   'display '(raise 0.1))
       (propertize (format " %s" branch)
-                  'display '(raise 0.1)))
                   'face `(:height ,(spaceline-all-the-icons--height my/text-height) :inherit)
+                  'display '(raise my/text-raise)))
      'mouse-face (spaceline-all-the-icons--highlight)
      'local-map local-map)))
 
