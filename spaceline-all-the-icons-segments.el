@@ -475,7 +475,6 @@ ICON-SET defaults to `spaceline-all-the-icons-icon-set-window-numbering'."
             (concat
              (spaceline-all-the-icons--separator spaceline-all-the-icons-primary-separator nil "")
              (propertize tag
-                         'display '(raise 0.2)
 
     (concat (propertize eyebrowse-new
                         'mouse-face (spaceline-all-the-icons--highlight)
@@ -486,6 +485,7 @@ ICON-SET defaults to `spaceline-all-the-icons-icon-set-window-numbering'."
                         'mouse-face (spaceline-all-the-icons--highlight)
                         'local-map (make-mode-line-mouse-map 'mouse-1 'eyebrowse-switch-to-window-config)
                         'help-echo "Switch Eyebrowse window config")))
+                         ;; 'display '(raise my/icon-raise)
                          'face `(:slant italic :height ,(spaceline-all-the-icons--height my/icon-height) :inherit))))))
   :when (bound-and-true-p eyebrowse-mode))
 
@@ -621,8 +621,8 @@ It is only enabled when you're not in a project or if the projectile segment is 
 (spaceline-define-segment all-the-icons-position
   "An `all-the-icons' Line & Column indicator"
   (propertize (format-mode-line "%l:%c")
-              'display '(raise 0.1))
               'face `(:height ,(spaceline-all-the-icons--height my/text-height) :inherit)
+              'display '(raise my/icon-raise))
   :tight t)
 
 (spaceline-define-segment all-the-icons-region-info
@@ -1076,17 +1076,17 @@ available updates then restores the current buffer."
 
     (propertize
      (concat
-      (propertize (format-time-string "%H:%M ") 'face `(:height ,(spaceline-all-the-icons--height 0.9) :inherit) 'display '(raise 0.1))
+      (propertize (format-time-string "%H:%M ") 'face `(:height ,(spaceline-all-the-icons--height 0.9) :inherit) 'display '(raise my/icon-raise))
       (propertize time-icon
                   'face `(:height ,(spaceline-all-the-icons--height 0.9) :family ,(all-the-icons-wicon-family) :inherit)
-                  'display '(raise 0.1))
+                  'display '(raise my/icon-raise))
 
       (when (bound-and-true-p display-time-day-and-date)
         (concat
-         (propertize (format-time-string " %a %b %d ") 'face `(:height ,(spaceline-all-the-icons--height 0.9) :inherit) 'display '(raise 0.1))
+         (propertize (format-time-string " %a %b %d ") 'face `(:height ,(spaceline-all-the-icons--height 0.9) :inherit) 'display '(raise my/icon-raise))
          (propertize date-icon
-                     'face `(:height ,(spaceline-all-the-icons--height 1.1) :family ,(all-the-icons-octicon-family) :inherit)
-                     'display '(raise 0.1))))
+                     'face `(:height ,(spaceline-all-the-icons--height my/icon-height) :family ,(all-the-icons-octicon-family) :inherit)
+                     'display '(raise my/icon-raise))))
 
       (propertize " " 'display '(space . (:width 1))))
       'help-echo (format-time-string "%c")
