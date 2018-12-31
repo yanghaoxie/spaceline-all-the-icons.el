@@ -443,7 +443,7 @@ ICON-SET defaults to `spaceline-all-the-icons-icon-set-window-numbering'."
                  (circle  (format "%c" (+ window-num 9311)))
                  (string  (progn (number-to-string window-num)))
                  (square  (progn
-                            (setq face (append `(:height ,(spaceline-all-the-icons--height 0.9)) face))
+                            (setq face (append `(:height ,(spaceline-all-the-icons--height 1.0)) face))
                             (setq face (append `(:family ,(all-the-icons-material-family)) face))
                             (all-the-icons-material (format "filter_%s" window-num) :v-adjust -0.1))))))
     (propertize icon 'face face)))
@@ -492,8 +492,8 @@ ICON-SET defaults to `spaceline-all-the-icons-icon-set-window-numbering'."
 (spaceline-define-segment all-the-icons-buffer-size
   "An `all-the-icons' segment depicting the buffer size"
   (propertize (format-mode-line "%I")
-              'face `(:height ,(spaceline-all-the-icons--height 0.9) :inherit)
               'display '(raise 0.1))
+              'face `(:height ,(spaceline-all-the-icons--height my/text-height) :inherit)
   :tight t)
 
 ;;; Second Divider Segments
@@ -621,8 +621,8 @@ It is only enabled when you're not in a project or if the projectile segment is 
 (spaceline-define-segment all-the-icons-position
   "An `all-the-icons' Line & Column indicator"
   (propertize (format-mode-line "%l:%c")
-              'face `(:height ,(spaceline-all-the-icons--height 0.9) :inherit)
               'display '(raise 0.1))
+              'face `(:height ,(spaceline-all-the-icons--height my/text-height) :inherit)
   :tight t)
 
 (spaceline-define-segment all-the-icons-region-info
@@ -720,8 +720,8 @@ It is only enabled when you're not in a project or if the projectile segment is 
                   'face `(:family ,(all-the-icons-octicon-family) :height ,(spaceline-all-the-icons--height) :inherit)
                   'display '(raise 0.1))
       (propertize (format " %s" branch)
-                  'face `(:height ,(spaceline-all-the-icons--height 0.9) :inherit)
                   'display '(raise 0.1)))
+                  'face `(:height ,(spaceline-all-the-icons--height my/text-height) :inherit)
      'mouse-face (spaceline-all-the-icons--highlight)
      'local-map local-map)))
 
