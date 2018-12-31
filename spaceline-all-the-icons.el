@@ -152,7 +152,8 @@ Add ADDITIONAL-SEGMENTS to the end of the theme."
 
      all-the-icons-separator-left-active-1
 
-     ((all-the-icons-projectile
+     ((
+       ;; all-the-icons-projectile
        all-the-icons-mode-icon
        ((all-the-icons-buffer-path
          all-the-icons-buffer-id) :separator ""))
