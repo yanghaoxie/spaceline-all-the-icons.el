@@ -475,18 +475,19 @@ ICON-SET defaults to `spaceline-all-the-icons-icon-set-window-numbering'."
             (concat
              (spaceline-all-the-icons--separator spaceline-all-the-icons-primary-separator nil "")
              (propertize tag
-
-    (concat (propertize eyebrowse-new
-                        'mouse-face (spaceline-all-the-icons--highlight)
-                        'local-map (make-mode-line-mouse-map 'mouse-1 'eyebrowse-create-window-config)
-                        'help-echo "Create new Eyebrowse window config")
-            (spaceline-all-the-icons--separator spaceline-all-the-icons-primary-separator nil "")
-            (propertize (concat eyebrowse-slot  eyebrowse-tag)
-                        'mouse-face (spaceline-all-the-icons--highlight)
-                        'local-map (make-mode-line-mouse-map 'mouse-1 'eyebrowse-switch-to-window-config)
-                        'help-echo "Switch Eyebrowse window config")))
                          ;; 'display '(raise my/icon-raise)
                          'face `(:slant italic :height ,(spaceline-all-the-icons--height my/icon-height) :inherit))))))
+
+    (concat
+     ;; (propertize eyebrowse-new
+     ;;                     'mouse-face (spaceline-all-the-icons--highlight)
+     ;;                     'local-map (make-mode-line-mouse-map 'mouse-1 'eyebrowse-create-window-config)
+     ;;                     'help-echo "Create new Eyebrowse window config")
+             (spaceline-all-the-icons--separator spaceline-all-the-icons-primary-separator nil "")
+             (propertize (concat eyebrowse-slot  eyebrowse-tag)
+                         'mouse-face (spaceline-all-the-icons--highlight)
+                         'local-map (make-mode-line-mouse-map 'mouse-1 'eyebrowse-switch-to-window-config)
+                         'help-echo "Switch Eyebrowse window config")))
   :when (bound-and-true-p eyebrowse-mode))
 
 (spaceline-define-segment all-the-icons-buffer-size
