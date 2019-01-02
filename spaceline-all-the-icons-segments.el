@@ -713,7 +713,7 @@ It is only enabled when you're not in a project or if the projectile segment is 
          (propertize (all-the-icons-material "cloud_download" :v-adjust -0.2)
                      'face `(:height ,(spaceline-all-the-icons--height 1.2) :family ,(all-the-icons-material-family)))))
 
-  :when (and active vc-mode (not spaceline-all-the-icons-slim-render)))
+  :when (and active vc-mode))
 
 (defun spaceline-all-the-icons--vc-git ()
   "Get the formatted GIT Version Control Icon based on variable `vc-mode'."
