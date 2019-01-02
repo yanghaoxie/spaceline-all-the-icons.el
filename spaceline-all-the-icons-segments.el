@@ -734,7 +734,7 @@ in pdf-view mode (enabled by the `pdf-tools' package)."
          (propertize (all-the-icons-material "cloud_download" :v-adjust -0.2)
                      'face `(:height ,(spaceline-all-the-icons--height 1.2) :family ,(all-the-icons-material-family)))))
 
-  :when (and active vc-mode))
+  :when vc-mode)
 
 (defun spaceline-all-the-icons--vc-git ()
   "Get the formatted GIT Version Control Icon based on variable `vc-mode'."
@@ -766,7 +766,7 @@ in pdf-view mode (enabled by the `pdf-tools' package)."
         ((string-match "SVN-" vc-mode) (spaceline-all-the-icons--vc-svn))
         (t ""))
 
-  :when (and active vc-mode))
+  :when vc-mode)
 
 (defun spaceline-all-the-icons--git-stats (icon text face)
   "Wrapper to render git statistics ICON with TEXT using FACE.
