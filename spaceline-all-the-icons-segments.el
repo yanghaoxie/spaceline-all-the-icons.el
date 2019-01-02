@@ -624,12 +624,33 @@ It is only enabled when you're not in a project or if the projectile segment is 
      'display '(raise 0.2)))
   :tight t)
 
+;; (spaceline-define-segment all-the-icons-position
+;;   "An `all-the-icons' Line & Column indicator"
+;;   (propertize (format-mode-line "%l:%c")
+;;               'face `(:height ,(spaceline-all-the-icons--height my/text-height) :inherit)
+;;               'display '(raise my/icon-raise))
+;;   :tight t)
+
+(defun spaceline--pdfview-page-number ()
+  "The current `pdf-view-mode' page number to display in the mode-line.
+Return a formated string containing the current and last page number for the
+currently displayed pdf file in `pdf-view-mode'."
+  (format "(%d/%d)"
+          ;; `pdf-view-current-page' is a macro in an optional dependency
+          ;; any better solutions?
+          (eval `(pdf-view-current-page))
+(pdf-cache-number-of-pages)))
+
 (spaceline-define-segment all-the-icons-position
-  "An `all-the-icons' Line & Column indicator"
-  (propertize (format-mode-line "%l:%c")
-              'face `(:height ,(spaceline-all-the-icons--height my/text-height) :inherit)
-              'display '(raise my/icon-raise))
-  :tight t)
+  "The current line and column numbers, or `(current page/number of pages)`
+in pdf-view mode (enabled by the `pdf-tools' package)."
+  (if (eq major-mode 'pdf-view-mode)
+      (spaceline--pdfview-page-number)
+    (if (and
+          (boundp 'column-number-indicator-zero-based)
+          (not column-number-indicator-zero-based))
+      "%l:%2C"
+"%l:%2c")))
 
 (spaceline-define-segment all-the-icons-region-info
   "An `all-the-icons' indicator of the currently highlighted region"
