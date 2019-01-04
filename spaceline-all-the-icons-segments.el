@@ -1170,7 +1170,7 @@ Displays HERE and TOTAL to indicate how many search results have been found."
          (anzu-face (if (and (zerop total)
                              (not (string= isearch-string "")))
                         'anzu-mode-line-no-match 'anzu-mode-line))
-         (text-face `(:height ,(spaceline-all-the-icons--height my/icon-height) :inherit ,anzu-face))
+         (text-face `(:height ,(spaceline-all-the-icons--height my/text-height) :inherit ,anzu-face))
          (icon-face `(:height ,(spaceline-all-the-icons--height my/icon-height) :family ,(all-the-icons-material-family) :inherit ,anzu-face)))
 
     (concat " "
