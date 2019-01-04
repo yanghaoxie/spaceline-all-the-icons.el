@@ -439,7 +439,7 @@ doesn't inherit all properties of a face."
 (defun spaceline-all-the-icons--window-number-icon (window-num &optional icon-set)
   "Return the icon to use for WINDOW-NUM from ICON-SET.
 ICON-SET defaults to `spaceline-all-the-icons-icon-set-window-numbering'."
-  (let* ((face `(:height ,(spaceline-all-the-icons--height my/icon-height) :inherit))
+  (let* ((face `(:height ,(spaceline-all-the-icons--height my/text-height) :inherit))
          (icon-set (if (> window-num 9) 'string
                      (or icon-set
                          spaceline-all-the-icons-icon-set-window-numbering)))
