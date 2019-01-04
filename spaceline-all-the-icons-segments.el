@@ -1174,7 +1174,7 @@ Displays HERE and TOTAL to indicate how many search results have been found."
          (icon-face `(:height ,(spaceline-all-the-icons--height my/icon-height) :family ,(all-the-icons-material-family) :inherit ,anzu-face)))
 
     (concat " "
-     (propertize (all-the-icons-material icon) 'face icon-face)
+     (propertize (all-the-icons-material icon) 'face icon-face 'display '(raise -0.1))
      (propertize status 'face text-face) " ")))
 
 ;; Weather Segments
