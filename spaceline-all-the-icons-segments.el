@@ -726,7 +726,7 @@ in pdf-view mode (enabled by the `pdf-tools' package)."
   "An `all-the-icons' segment to depict the current VC system with an icon"
   (cond ((string-match "Git[:-]" vc-mode)
          (propertize (spaceline-all-the-icons-icon-set-vc-icon-git)
-                     'face `(:height ,(spaceline-all-the-icons--height 1.1)
+                     'face `(:height ,(spaceline-all-the-icons--height my/icon-height)
                              :family ,(all-the-icons-icon-family (spaceline-all-the-icons-icon-set-vc-icon-git))
                              :inherit)
                      'display '(raise 0.1)))
