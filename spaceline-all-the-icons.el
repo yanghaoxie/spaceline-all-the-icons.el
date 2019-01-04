@@ -137,18 +137,12 @@ Add ADDITIONAL-SEGMENTS to the end of the theme."
       :face mode-line
       :skip-alternate t)
 
-     (all-the-icons-modified :face highlight-face :tight-right t)
      ((all-the-icons-bookmark
        all-the-icons-dedicated) :face highlight-face :skip-alternate t)
-     (all-the-icons-eyebrowse-workspace :face highlight-face :tight t)
-     (all-the-icons-window-number :face highlight-face :tight t)
-     (all-the-icons-buffer-size :face highlight-face)
-     ;; ((all-the-icons-modified
-     ;;   all-the-icons-bookmark
-     ;;   all-the-icons-dedicated
-     ;;   all-the-icons-window-number
-     ;;   all-the-icons-eyebrowse-workspace
-     ;;   all-the-icons-buffer-size) :face highlight-face :skip-alternate t)
+     ((all-the-icons-eyebrowse-workspace
+       all-the-icons-window-number) :face highlight-face :tight-left t :separator "|")
+     (all-the-icons-modified)
+     (all-the-icons-buffer-size :tight-right t)
 
      all-the-icons-separator-left-active-1
 
