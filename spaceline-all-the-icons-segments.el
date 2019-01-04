@@ -641,7 +641,7 @@ currently displayed pdf file in `pdf-view-mode'."
           (eval `(pdf-view-current-page))
 (pdf-cache-number-of-pages)))
 
-(spaceline-define-segment all-the-icons-position
+(spaceline-define-segment all-the-icons-spaceline-line-column
   "The current line and column numbers, or `(current page/number of pages)`
 in pdf-view mode (enabled by the `pdf-tools' package)."
   (if (eq major-mode 'pdf-view-mode)
